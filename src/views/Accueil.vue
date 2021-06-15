@@ -1,5 +1,10 @@
 <template>
-  <div class="home"></div>
+  <div class="home">
+    <div :key="index" v-for="(film, index) in films">
+      <h1> {{ film.title }} </h1>
+    </div>
+  </div>
+
 </template>
 
 <script>
@@ -9,15 +14,15 @@ export default {
   name: 'Home',
   data(){
     return{
-      film: null,
+      films: null,
     }
   },
   mounted() {
     axios
     .get('https://api.themoviedb.org/3/movie/popular?api_key=74e966943763d204227a4f524cc7700f&language=fr')
     .then((response) => { 
-      this.film = response;
-      console.log(this.film);
+      this.films = response.data.results;
+      console.log(this.films);
       });
 },
 }
