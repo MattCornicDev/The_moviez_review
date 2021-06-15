@@ -2,7 +2,9 @@
   <div class="home">
     <div :key="index" v-for="(film, index) in films">
       <h1> {{ film.title }} </h1>
+      <img :src="url + film.poster_path" height="300" alt="Poster d'affiche">
     </div>
+    
   </div>
 
 </template>
@@ -15,6 +17,8 @@ export default {
   data(){
     return{
       films: null,
+      url : "https://image.tmdb.org/t/p/original"
+
     }
   },
   mounted() {
