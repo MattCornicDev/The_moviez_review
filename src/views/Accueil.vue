@@ -1,13 +1,17 @@
 <template>
   <div class="home">
-    <div :key="index" v-for="(film, index) in films">
+    <input type="text" placeholder="recherche" >
+    <div id="affiche" :key="index" v-for="(film, index) in films">
       <h1> {{ film.title }} </h1>
-      <img :src="url + film.poster_path" height="300" alt="Poster d'affiche">
+      <img :src="url + film.poster_path" alt="Poster d'affiche">
     </div>
     
   </div>
 
+  
+
 </template>
+
 
 <script>
 // @ is an alias to /src
